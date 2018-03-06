@@ -22,6 +22,9 @@ function register(configuration, options)
                         type: require('./nunjucks/index.js').tag.FormTextareaTag
                     },
                     {
+                        type: require('./nunjucks/index.js').tag.FormCheckboxTag
+                    },
+                    {
                         type: require('./nunjucks/index.js').tag.LinkTag
                     },
                     {
@@ -46,6 +49,9 @@ function register(configuration, options)
                     },
                     {
                         type: require('./nunjucks/index.js').tag.FormTextareaTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.FormCheckboxTag
                     },
                     {
                         type: require('./nunjucks/index.js').tag.LinkTag

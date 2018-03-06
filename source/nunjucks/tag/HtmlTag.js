@@ -82,7 +82,8 @@ class HtmlTag extends Tag
     isBooleanAttribute(name)
     {
         const hashTable = [
-            'disabled'
+            'disabled',
+            'required'
         ];
 
         return hashTable.includes(name);
@@ -106,6 +107,8 @@ class HtmlTag extends Tag
         {
             return ' ' + key + '="' + value + '"';
         }
+
+        return '';
     }
 
 
