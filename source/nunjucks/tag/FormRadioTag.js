@@ -10,7 +10,7 @@ const HtmlTag = require('./HtmlTag.js').HtmlTag;
 /**
  * @memberOf nunjucks.tag
  */
-class FormInputTag extends HtmlTag
+class FormRadioTag extends HtmlTag
 {
     /**
      */
@@ -22,13 +22,13 @@ class FormInputTag extends HtmlTag
         this._hasBody = false;
     }
 
-    
+
     /**
      * @inheritDoc
      */
     static get className()
     {
-        return 'nunjucks.tag/FormInputTag';
+        return 'nunjucks.tag/FormRadioTag';
     }
 
 
@@ -37,18 +37,17 @@ class FormInputTag extends HtmlTag
      */
     get name()
     {
-        return ['form_input', 'input'];
-    }    
+        return ['radio'];
+    }
 
 
     /**
      * @type {String}
      */
-    getTagName(params)
+    getTagName()
     {
         return 'input';
     }
-
 }
 
 
@@ -56,4 +55,4 @@ class FormInputTag extends HtmlTag
  * Exports
  * @ignore
  */
-module.exports.FormInputTag = FormInputTag;
+module.exports.FormRadioTag = FormRadioTag;

@@ -5,8 +5,10 @@
 module.exports =
 {
     FormInputTag: require('./FormInputTag.js').FormInputTag,            
-    FormSelectTag: require('./FormSelectTag.js').FormSelectTag,            
+    FormSelectTag: require('./FormSelectTag.js').FormSelectTag,
+    FormRadioTag: require('./FormRadioTag.js').FormRadioTag,
     FormTextareaTag: require('./FormTextareaTag.js').FormTextareaTag,            
     HtmlTag: require('./HtmlTag.js').HtmlTag,        
-    LinkTag: require('./LinkTag.js').LinkTag
+    LinkTag: require('./LinkTag.js').LinkTag,
+    ButtonTag: require('./ButtonTag.js').ButtonTag
 };

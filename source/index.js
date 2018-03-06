@@ -14,9 +14,47 @@ function register(configuration, options)
                     },
                     {
                         type: require('./nunjucks/index.js').tag.FormSelectTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.FormRadioTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.FormTextareaTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.LinkTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.ButtonTag
                     }
                 ])
         });
+
+    // Parser tags
+    configuration.mappings.add(require('entoj-system').export.parser.JinjaParser,
+        {
+            '!tags': configuration.clean(
+                [
+                    {
+                        type: require('./nunjucks/index.js').tag.FormInputTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.FormSelectTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.FormRadioTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.FormTextareaTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.LinkTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.ButtonTag
+                    }
+                ])
+        });        
 }
 
 

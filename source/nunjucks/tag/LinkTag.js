@@ -13,6 +13,17 @@ const HtmlTag = require('./HtmlTag.js').HtmlTag;
 class LinkTag extends HtmlTag
 {
     /**
+     */
+    constructor()
+    {
+        super();
+
+        // Assign options
+        this._hasBody = true;
+    }
+
+
+    /**
      * @inheritDoc
      */
     static get className()
@@ -33,7 +44,7 @@ class LinkTag extends HtmlTag
     /**
      * @type {String}
      */
-    get tagName()
+    getTagName()
     {
         return 'a';
     }

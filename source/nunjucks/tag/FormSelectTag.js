@@ -38,7 +38,7 @@ class FormSelectTag extends HtmlTag
     get name()
     {
         return ['form_select', 'select'];
-    }    
+    }
 
 
     /**
@@ -47,7 +47,7 @@ class FormSelectTag extends HtmlTag
     getTagName(params)
     {
         return 'select';
-    }    
+    }
 
 
     /**
@@ -77,14 +77,14 @@ class FormSelectTag extends HtmlTag
             {
                 for (let key = 0; key < params.options.length; key++)
                 {
-                    body+= '<option value="' + key + '">' + params.options[key] + '</option>';                    
+                    body+= '<option value="' + key + '">' + params.options[key] + '</option>';
                 }
             }
             else
             {
                 for (const key in params.options)
                 {
-                    body+= '<option value="' + key + '">' + params.options[key] + '</option>';                    
+                    body+= '<option value="' + key + '">' + params.options[key] + '</option>';
                 }
             }
         }

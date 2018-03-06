@@ -71,7 +71,42 @@ class HtmlTag extends Tag
             ? caller()
             : '';  
         return body;
-    }  
+    }
+
+
+    /**
+     * 
+     * @param {String} name 
+     * @return {Boolean}
+     */
+    isBooleanAttribute(name)
+    {
+        const hashTable = [
+            'disabled'
+        ];
+
+        return hashTable.includes(name);
+    }
+
+
+    /**
+     * 
+     * @param {String} key 
+     * @param {String} value 
+     * @param {Boolean} isBooleanAttribute 
+     * @return {String}
+     */
+    generateAttribute(key, value, isBooleanAttribute)
+    {
+        if(isBooleanAttribute && value === true)
+        {
+            return ' ' + key;
+        }
+        else if(!isBooleanAttribute)
+        {
+            return ' ' + key + '="' + value + '"';
+        }
+    }
 
 
     /**
@@ -105,14 +140,15 @@ class HtmlTag extends Tag
         const body = this.getBody(params, caller);
 
         // Render
-        let result = '<' + tagName;        
+        let result = '<' + tagName;
         for (const name in attributes)
         {
             const key = this.getAttributeName(name);
             if (key)
             {
                 const value = this.getAttributeValue(key, attributes[name]);
-                result+= ' ' + key + '="' + value + '"';
+
+                result+= this.generateAttribute(key, value, this.isBooleanAttribute(key));
             }
         }
         if (body.trim() === '')
