@@ -19,7 +19,7 @@ class ButtonTag extends HtmlTag
         super();
 
         // Assign options
-        this._hasBody = false;
+        this._hasBody = true;
     }
 
 
