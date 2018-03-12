@@ -10,6 +10,9 @@ function register(configuration, options)
             '!tags': configuration.clean(
                 [
                     {
+                        type: require('./nunjucks/index.js').tag.FormTag
+                    },
+                    {
                         type: require('./nunjucks/index.js').tag.FormInputTag
                     },
                     {
@@ -23,6 +26,9 @@ function register(configuration, options)
                     },
                     {
                         type: require('./nunjucks/index.js').tag.FormCheckboxTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.FormOptionTag
                     },
                     {
                         type: require('./nunjucks/index.js').tag.LinkTag
@@ -39,6 +45,9 @@ function register(configuration, options)
             '!tags': configuration.clean(
                 [
                     {
+                        type: require('./nunjucks/index.js').tag.FormTag
+                    },
+                    {
                         type: require('./nunjucks/index.js').tag.FormInputTag
                     },
                     {
@@ -52,6 +61,9 @@ function register(configuration, options)
                     },
                     {
                         type: require('./nunjucks/index.js').tag.FormCheckboxTag
+                    },
+                    {
+                        type: require('./nunjucks/index.js').tag.FormOptionTag
                     },
                     {
                         type: require('./nunjucks/index.js').tag.LinkTag
