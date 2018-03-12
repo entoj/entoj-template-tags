@@ -48,6 +48,17 @@ class FormCheckboxTag extends HtmlTag
     {
         return 'input';
     }
+
+
+    parseAttributes(params)
+    {
+        const attributes = super.parseAttributes(params);
+
+        attributes['type'] = this.name.shift();
+
+        return attributes;
+    }
+
 }
 
 

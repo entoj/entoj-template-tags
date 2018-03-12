@@ -92,33 +92,11 @@ class HtmlTag extends Tag
 
     /**
      * 
-     * @param {String} key 
-     * @param {String} value 
-     * @param {Boolean} isBooleanAttribute 
-     * @return {String}
+     * @param {Object} params 
+     * @return {Object} attributes
      */
-    generateAttribute(key, value, isBooleanAttribute)
+    parseAttributes(params) 
     {
-        if(isBooleanAttribute && value === true)
-        {
-            return ' ' + key;
-        }
-        else if(!isBooleanAttribute)
-        {
-            return ' ' + key + '="' + value + '"';
-        }
-
-        return '';
-    }
-
-
-    /**
-     * Runs the tag
-     */
-    generate(context, params, caller)
-    {
-        // Prepare
-        const tagName = this.getTagName(params);
         const attributes = {};
         for (const name in params)
         {
@@ -133,16 +111,48 @@ class HtmlTag extends Tag
                 for (const subName in params[name])
                 {
                     attributes[subName] = params[name][subName];
-                }                    
-            } 
+                }
+            }
             else
             {
                 attributes[name] = params[name];
-            }                   
+            }
         }
-        const body = this.getBody(params, caller);
+        return attributes;
+    }
 
-        // Render
+
+    /**
+     * 
+     * @param {String} key 
+     * @param {String} value 
+     * @param {Boolean} isBooleanAttribute 
+     * @return {String}
+     */
+    generateAttribute(key, value, isBooleanAttribute)
+    {
+        if(isBooleanAttribute && value === true)
+        {
+            return ' ' + key;
+        }
+        else if(!isBooleanAttribute && value != '' && value != undefined)
+        {
+            return ' ' + key + '="' + value + '"';
+        }
+
+        return '';
+    }
+
+
+    /**
+     * 
+     * @param {String} body 
+     * @param {String} tagName 
+     * @param {Object} attributes 
+     * @return {String} result
+     */
+    render(body, tagName, attributes)
+    {
         let result = '<' + tagName;
         for (const name in attributes)
         {
@@ -162,8 +172,26 @@ class HtmlTag extends Tag
         {
             result+= '>';
             result+= body;
-            result+= '</' + tagName + '>';    
+            result+= '</' + tagName + '>';
         }
+
+        return result;
+    }
+
+
+    /**
+     * Runs the tag
+     */
+    generate(context, params, caller)
+    {
+        // Prepare
+        const tagName = this.getTagName(params);
+        const attributes = this.parseAttributes(params);
+        
+        const body = this.getBody(params, caller);
+
+        // Render
+        const result = this.render(body, tagName, attributes);
         return result;
     }    
 }

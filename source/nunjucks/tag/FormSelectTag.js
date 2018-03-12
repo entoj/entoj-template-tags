@@ -65,6 +65,8 @@ class FormSelectTag extends HtmlTag
 
 
     /**
+     * needed if options are defined via parameter in select tag
+     * i dont think this is needed anymore because option tags have to be a custom tag itself too
      * @type {String}
      */
     getBody(params, caller)

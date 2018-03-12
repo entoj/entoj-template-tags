@@ -38,7 +38,7 @@ class FormInputTag extends HtmlTag
     get name()
     {
         return ['form_input', 'input'];
-    }    
+    }
 
 
     /**
