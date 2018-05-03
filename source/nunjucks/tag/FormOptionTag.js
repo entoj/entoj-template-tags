@@ -10,7 +10,7 @@ const HtmlTag = require('./HtmlTag.js').HtmlTag;
 /**
  * @memberOf nunjucks.tag
  */
-class FormInputTag extends HtmlTag
+class FormOptionTag extends HtmlTag
 {
     /**
      */
@@ -19,7 +19,7 @@ class FormInputTag extends HtmlTag
         super();
 
         // Assign options
-        this._hasBody = false;
+        this._hasBody = true;
     }
 
     
@@ -28,7 +28,7 @@ class FormInputTag extends HtmlTag
      */
     static get className()
     {
-        return 'nunjucks.tag/FormInputTag';
+        return 'nunjucks.tag/FormOptionTag';
     }
 
 
@@ -37,7 +37,7 @@ class FormInputTag extends HtmlTag
      */
     get name()
     {
-        return ['form_input', 'input'];
+        return ['option'];
     }
 
 
@@ -46,7 +46,7 @@ class FormInputTag extends HtmlTag
      */
     getTagName(params)
     {
-        return 'input';
+        return 'option';
     }
 
 }
@@ -56,4 +56,4 @@ class FormInputTag extends HtmlTag
  * Exports
  * @ignore
  */
-module.exports.FormInputTag = FormInputTag;
+module.exports.FormOptionTag = FormOptionTag;
